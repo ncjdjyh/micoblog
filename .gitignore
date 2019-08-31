@@ -1,17 +1,31 @@
-# 数据库属性文件
-*datasource.properties
-*global.properties
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
-out/*
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Intellij
-.idea/*
-*.iml
+### IntelliJ IDEA ###
+.idea
 *.iws
+*.iml
+*.ipr
 
-# Mac
-.DS_Store
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
 
-# Maven
-log/*
-target/*
+### VS Code ###
+.vscode/
