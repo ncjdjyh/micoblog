@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncjdjyh.series.micoblog.mapper.AuthMapper">
+
+    <select id="listByUserId" resultType="com.ncjdjyh.series.micoblog.entity.Auth">
+SELECT
+	a.id,
+	a.NAME
+FROM
+	auth a
+	LEFT JOIN user_auth ua ON ua.auth_id = a.id
+	LEFT JOIN USER u ON ua.user_id = u.userid
+WHERE
+	u.userid = #{id}
+    </select>
+</mapper>
