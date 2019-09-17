@@ -3,7 +3,7 @@ package com.ncjdjyh.series.micoblog.controller;
 
 import com.ncjdjyh.series.micoblog.entity.Blog;
 import com.ncjdjyh.series.micoblog.entity.User;
-import com.ncjdjyh.series.micoblog.service.impl.BlogServiceImpl;
+import com.ncjdjyh.series.micoblog.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +26,7 @@ public class BlogController {
     HttpServletRequest request;
 
     @Autowired
-    BlogServiceImpl service;
+    IBlogService service;
 
     @PostMapping
     public void publishBlog(Blog blog, User user) {

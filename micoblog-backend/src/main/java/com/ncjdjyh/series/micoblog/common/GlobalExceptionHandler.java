@@ -1,6 +1,7 @@
 package com.ncjdjyh.series.micoblog.common;
 
 import com.ncjdjyh.series.micoblog.exception.DatabaseDataConflictException;
+import com.ncjdjyh.series.micoblog.exception.MyException;
 import org.apache.ibatis.javassist.tools.rmi.ObjectNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +21,8 @@ import java.util.List;
  */
 @ControllerAdvice
 @ResponseBody
-public class WebExceptionHandler {
-    private static final Logger log = LoggerFactory.getLogger(WebExceptionHandler.class);
+public class GlobalExceptionHandler {
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler({Exception.class})
     @ResponseBody
@@ -47,6 +48,9 @@ public class WebExceptionHandler {
         }
         if (e instanceof DatabaseDataConflictException) {
             return R.BAD_REQUEST_RESPONSE.msg("数据库已存在该数据");
+        }
+        if (e instanceof MyException) {
+            return R.BAD_REQUEST_RESPONSE.msg(e.getMessage());
         }
         return R.INTERNAL_SERVER_ERROR_RESPONSE.msg("服务器异常");
     }

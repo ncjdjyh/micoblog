@@ -1,5 +1,6 @@
 package com.ncjdjyh.series.micoblog.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -16,8 +17,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 @Configuration
 @EnableCaching
+@MapperScan("com.ncjdjyh.series.micoblog.mapper")
 public class RedisConfig extends CachingConfigurerSupport {
-
     @Bean
     @Override
     public KeyGenerator keyGenerator() {
